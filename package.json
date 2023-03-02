@@ -1,0 +1,25 @@
+{
+  "name": "rest-server-node",
+  "version": "1.0.0",
+  "description": "Rest Server Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maurialejandro/rest-server-node.git"
+  },
+  "author": "mauribiker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maurialejandro/rest-server-node/issues"
+  },
+  "homepage": "https://github.com/maurialejandro/rest-server-node#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
