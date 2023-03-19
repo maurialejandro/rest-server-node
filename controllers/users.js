@@ -64,12 +64,14 @@ const usersPost = async (req , res) => {
 
 const usersDelete = async (req, res) => {
     const { id } = req.params;
-   
+
     const user = await User.findByIdAndUpdate( id, { state: false } );
+    const userAuth = req.user;
 
     res.json({
         msg: 'delete API',
-        user
+        user,
+        userAuth
     })
 }
 

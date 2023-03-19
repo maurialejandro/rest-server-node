@@ -29,7 +29,7 @@ class Server {
 
         // Parseo Lectura
         this.app.use(bodyParser.json())
-        this.app.use(bodyParser.urlencoded({extended: false}));
+        this.app.use(bodyParser.urlencoded({extended: true}));
         
         // Directorio publico
         this.app.use(express.static('public'))
