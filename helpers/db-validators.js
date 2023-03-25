@@ -1,5 +1,7 @@
 const Role = require('../models/role');
 const User = require('../models/user');
+const Categorie = require('../models/categorie');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 const isValidRole = async ( role = '' ) => {
     
@@ -28,8 +30,27 @@ const isValidUserId = async ( id  ) => {
         throw new Error('El ID ingresado no es correcto')
     }
 }
+
+const isValidCategorieId = async ( id  ) => {
+
+    const categorie = await Categorie.findById({ _id: id })
+    if(!categorie){
+        console.log('no existe categoria entonces no actualizar')
+        throw new Error('El ID ingresado no es correcto')
+    }
+}
+
+
+const isObjectId = async ( id = '' ) => {
+    if( !ObjectId.isValid(id) ){
+        throw new Error('El ID ingresado no es correcto')
+    }
+
+}
 module.exports = {
     isValidRole,
     userEmailExist,
-    isValidUserId
+    isValidUserId,
+    isObjectId,
+    isValidCategorieId
 }

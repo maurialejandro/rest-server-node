@@ -10,7 +10,10 @@ class Server {
         this.paths = {
             authPath:  '/api/auth/login',
             categories: '/api/categories',
-            usuariosPath:  '/api/usuarios'
+            usuariosPath:  '/api/usuarios',
+            product: '/api/product',
+            search: '/api/search',
+            
         }
 
         // Connectar a la db
@@ -41,7 +44,8 @@ class Server {
        this.app.use(this.paths.usuariosPath, require('../routes/user'));
        this.app.use(this.paths.categories, require('../routes/categories'));
        this.app.use(this.paths.authPath, require('../routes/auth'));
-       
+       this.app.use(this.paths.product, require('../routes/product'));
+       this.app.use(this.paths.search, require('../routes/search'));
     }
 
     listen(){
