@@ -24,7 +24,7 @@ const usersPut = async (req, res) => {
 
     const id = req.params.id
     const { _id, pass, google, email, ...rest } = req.body;
-    
+
     // TODO validar contra db
     if( pass ){
         const salt = bcryptjs.genSaltSync(10);

@@ -23,7 +23,6 @@ const userEmailExist = async ( email= '' ) => {
 }
 
 const isValidUserId = async ( id  ) => {
-
     const user = await User.findById({ _id: id })
     if(!user){
         console.log('no existe el usuario entonces no actualizar')
@@ -32,7 +31,6 @@ const isValidUserId = async ( id  ) => {
 }
 
 const isValidCategorieId = async ( id  ) => {
-
     const categorie = await Categorie.findById({ _id: id })
     if(!categorie){
         console.log('no existe categoria entonces no actualizar')
@@ -45,12 +43,21 @@ const isObjectId = async ( id = '' ) => {
     if( !ObjectId.isValid(id) ){
         throw new Error('El ID ingresado no es correcto')
     }
+}
 
+const allowedCollection = ( collection = '', colections = [] ) => {
+    const include = colections.includes( collection );
+    if( !include ){
+        throw new Error(`La coleccion ${ colection } no es permitida, ${ collections }`)
+    }
+
+    return true;
 }
 module.exports = {
     isValidRole,
     userEmailExist,
     isValidUserId,
     isObjectId,
-    isValidCategorieId
+    isValidCategorieId,
+    allowedCollection
 }

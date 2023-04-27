@@ -26,7 +26,7 @@ const UserSchema = Schema({
     google: {
         type: Boolean,
         default: false
-    }  
+    }
 })
 
 UserSchema.methods.toJSON = function() {
